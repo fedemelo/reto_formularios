@@ -38,13 +38,13 @@ export default function App() {
             <Form>
                 <Form.Group className="mb-6" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" onChange={handleEmailChange} value={formValues.email} />
+                    <Form.Control type="email" placeholder="Enter email" onChange={handleEmailChange} value={formValues.email} isValid={emailIsValid} isInvalid={!emailIsValid}/>
                     {!emailIsValid && <Form.Text id="textico">Your email should follow an established format</Form.Text>}
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange} value={formValues.password} />
+                    <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange} value={formValues.password} isValid={validatePassword()} isInvalid={!validatePassword()} />
                     {!validatePassword() && <Form.Text id="textico">Your password should be have numbers and letters and should be at least 9 char long</Form.Text>}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
